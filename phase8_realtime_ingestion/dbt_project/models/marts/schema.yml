@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fact_cdr_events
+    description: Gold CDR event fact containing validated CDR records.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: cdr_id
+        data_type: number(38,0)
+        constraints:
+          - type: not_null
+          - type: unique
+        tests:
+          - not_null
+          - unique
+
+      - name: duration_seconds
+        data_type: number(38,0)
+
+      - name: estimated_charge_pence
+        data_type: number(38,0)
+
+  - name: dim_fraud_labels
+    description: Fraud-label dimension with SCD Type 2 history maintained by the snapshot.
+    columns:
+      - name: fraud_id
+        data_type: varchar
+        constraints:
+          - type: not_null
+        tests:
+          - not_null

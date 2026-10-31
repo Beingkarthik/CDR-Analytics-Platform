@@ -1,0 +1,4 @@
+case,rule,window_or_watermark,rejected_record_handling,justification
+Duplicate event or key,Keep every received event in Bronze; Silver has one row per cdr_id,Exact event duplicate or same/older event_time,Do not reject from Bronze; log as ignored in stream_audit,Auditable raw layer and idempotent curated layer
+Late event,Land raw event; compare event_time to stored Silver event_time,1-hour operational watermark,Retain in Bronze; flag for review if older than watermark; merge only if newest for key,Prevents loss while preserving latest business state
+Out-of-order event,Newest event_time wins; older event never overwrites newer,Compare event_time values,Retain in Bronze; mark ignored in audit when older,Arrival order is not a reliable business ordering

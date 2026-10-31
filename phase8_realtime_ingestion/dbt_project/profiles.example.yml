@@ -1,0 +1,14 @@
+cdr_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: YOUR_ACCOUNT
+      user: YOUR_USER
+      password: YOUR_PASSWORD
+      role: YOUR_ROLE
+      database: CDR_ANALYTICS
+      warehouse: COMPUTE_WH
+      schema: DBT_DEV
+      threads: 4
+      client_session_keep_alive: false

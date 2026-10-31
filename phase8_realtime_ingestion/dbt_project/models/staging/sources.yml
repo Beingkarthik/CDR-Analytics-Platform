@@ -1,0 +1,8 @@
+version: 2
+sources:
+  - name: raw
+    database: CDR_ANALYTICS
+    schema: RAW
+    tables:
+      - name: cdr_records
+        description: Raw CDR records loaded by the preceding ingestion phases.

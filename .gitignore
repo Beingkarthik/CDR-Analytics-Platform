@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+*.pem
+*.key
+
+# VS Code / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/*
+!logs/.gitkeep
+run_log.txt
+pipeline_log.txt
+transformation_log.txt
+
+# Generated data
+data/cleansed/*
+!data/cleansed/.gitkeep
+data/quarantine/*
+!data/quarantine/.gitkeep
+
+# Airflow
+airflow.db
+airflow.cfg
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+
+
+# dbt generated files
+**/target/
+**/dbt_packages/
+**/logs/
+
+# Local dbt configuration and credentials
+profiles.yml
+**/profiles.yml
+.user.yml
+**/.user.yml
+
+# Environment files (keep the example template)
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.p8
+*.p12
+*.rsa
+
+# Local databases and generated artifacts
+*.sqlite
+*.sqlite3
+*.db
+
+
+
+
+
+
+
+
+
+
+
+# Local temporary and outdated submission files
+/0
+/CDR_Phase9_Submission.zip

@@ -1,0 +1,2 @@
+minute,events_ingested,throughput_events_per_minute,latency_p50_seconds,latency_p95_seconds
+2026-10-29 11:59,72,72,410.953,423.742

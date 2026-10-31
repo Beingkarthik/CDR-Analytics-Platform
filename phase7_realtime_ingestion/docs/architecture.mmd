@@ -1,0 +1,11 @@
+flowchart LR
+  A[Event simulator / source] --> B[Incoming JSONL]
+  B --> C[Streaming consumer / Snowpipe adapter]
+  C --> D[Bronze: append-only raw + ingest_time]
+  D --> E[CDC MERGE]
+  E --> F[Silver: latest row per cdr_id]
+  G[Existing Phase 3–6 batch pipeline] --> H[Same Bronze / Silver targets]
+  H --> F
+  C --> I[Latency measurement: producer_time to ingest_time]
+  C --> J[Checkpoint: byte offset / production checkpoint store]
+  E --> K[Audit + reconciliation]

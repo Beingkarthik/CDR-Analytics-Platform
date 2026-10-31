@@ -1,0 +1,8 @@
+# Local stream paths (no secrets)
+CDR_INPUT_FILE=data/incoming/events.jsonl
+CDR_BRONZE_FILE=data/bronze/events.jsonl
+CDR_DB=data/cdr_stream.db
+CDR_CHECKPOINT=data/checkpoint.offset
+
+# Production Snowflake settings must be stored securely outside this file.
+# Never commit passwords, private keys, or real tokens.

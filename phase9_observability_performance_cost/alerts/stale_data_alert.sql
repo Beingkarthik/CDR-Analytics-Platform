@@ -1,0 +1,7 @@
+-- Stale data alert design
+-- Source: CDR_ANALYTICS.RAW.CDR_RECORDS
+-- A verified ingestion timestamp column has not been identified.
+-- A freshness threshold has not been specified.
+-- Do not execute until both are confirmed.
+-- Notification integration: CDR_ALERT_EMAIL
+-- Status: Design documented; implementation pending source metadata.
