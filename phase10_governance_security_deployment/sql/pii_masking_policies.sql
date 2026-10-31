@@ -1,0 +1,5 @@
+-- PHASE 10: PII MASKING DESIGN NOTE
+-- Native masking-policy implementation was attempted but the Snowflake
+-- account returned: Unsupported feature MASKING POLICY.
+-- The tested implementation is in pii_masking_secure_view.sql.
+-- Do not execute native CREATE MASKING POLICY statements in this environment.

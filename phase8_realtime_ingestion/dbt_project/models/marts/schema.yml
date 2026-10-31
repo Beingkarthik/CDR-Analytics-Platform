@@ -21,13 +21,3 @@ models:
 
       - name: estimated_charge_pence
         data_type: number(38,0)
-
-  - name: dim_fraud_labels
-    description: Fraud-label dimension with SCD Type 2 history maintained by the snapshot.
-    columns:
-      - name: fraud_id
-        data_type: varchar
-        constraints:
-          - type: not_null
-        tests:
-          - not_null

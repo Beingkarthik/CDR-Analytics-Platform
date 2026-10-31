@@ -1,0 +1,45 @@
+name: CDR Analytics CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dbt-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dbt
+        run: pip install dbt-core==1.12.6 dbt-snowflake==1.12.4
+
+      - name: Create temporary dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml <<EOF
+          cdr_analytics:
+            target: dev
+            outputs:
+              dev:
+                type: snowflake
+                account: placeholder
+                user: placeholder
+                password: placeholder
+                role: ACCOUNTADMIN
+                database: CDR_ANALYTICS
+                warehouse: COMPUTE_WH
+                schema: DBT_DEV
+                threads: 4
+          EOF
+
+      - name: Validate dbt project
+        working-directory: phase8_realtime_ingestion/dbt_project
+        run: dbt parse --no-partial-parse
